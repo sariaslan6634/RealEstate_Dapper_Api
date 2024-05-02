@@ -1,4 +1,5 @@
-﻿<section class="w3l-index3" id="about">
+﻿@model List<ResultTestimonialDto>
+<section class="w3l-index3" id="about">
     <div class="midd-w3 py-5">
         <div class="container pb-lg-5 pb-md-4 pb-2">
             <div class="row">
@@ -11,92 +12,39 @@
                         <h6 class="title-small">Referanslarımız</h6>
                         <div class="client-grid">
                             <div class="client-title">
-                                <h3 class="title-big">We value client relationships</h3>
+                                <h3 class="title-big">Müşteri ilişkilerine değer veriyoruz.</h3>
                             </div>
                             <div class="clients-info">
                                 <h3 class="title-big">45,200</h3>
-                                <p>Satisfied customers</p>
+                                <p>Memnun müşteriler</p>
                             </div>
                         </div>
 
                         <div class="w3l-clients" id="testimonials">
                             <div id="owl-demo1" class="owl-carousel owl-theme mt-4 pt-2 mb-4">
-                                <div class="item">
+                                @foreach (var item in Model)
+                                {    
+                                    <div class="item">
                                     <div class="testimonial-content">
                                         <div class="testimonial">
                                             <div class="testi-des">
                                                 <div class="peopl align-self">
-                                                    <h4>John wilson</h4>
-                                                    <p class="indentity">Communication executive</p>
+                                                    <h4>@item.NameSurname</h4>
+                                                    <p class="indentity">@item.Title</p>
                                                 </div>
                                             </div>
                                             <blockquote>
                                                 <q>
-                                                    OMG! I cannot believe that I have got a property new private house after
-                                                    getting villa. It was very comfortable. I can't say enough about Real Estate
+                                                    @item.Comment
                                                 </q>
                                             </blockquote>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="item">
-                                    <div class="testimonial-content">
-                                        <div class="testimonial">
-                                            <div class="testi-des">
-                                                <div class="peopl align-self">
-                                                    <h4>Julia sakura</h4>
-                                                    <p class="indentity">Digital Marketer</p>
-                                                </div>
-                                            </div>
-                                            <blockquote>
-                                                <q>
-                                                    OMG! I cannot believe that I have got a property new private house after
-                                                    getting villa. It was very comfortable. I can't say enough about Real Estate
-                                                </q>
-                                            </blockquote>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="testimonial-content">
-                                        <div class="testimonial">
-                                            <div class="testi-des">
-                                                <div class="peopl align-self">
-                                                    <h4>John wilson</h4>
-                                                    <p class="indentity">Web Developer</p>
-                                                </div>
-                                            </div>
-                                            <blockquote>
-                                                <q>
-                                                    OMG! I cannot believe that I have got a property new private house after
-                                                    getting villa. It was very comfortable. I can't say enough about Real Estate
-                                                </q>
-                                            </blockquote>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="testimonial-content">
-                                        <div class="testimonial">
-                                            <div class="testi-des">
-                                                <div class="peopl align-self">
-                                                    <h4>Julia sakura</h4>
-                                                    <p class="indentity">Digital Marketer</p>
-                                                </div>
-                                            </div>
-                                            <blockquote>
-                                                <q>
-                                                    OMG! I cannot believe that I have got a property new private house after
-                                                    getting villa. It was very comfortable. I can't say enough about Real Estate
-                                                </q>
-                                            </blockquote>
-                                        </div>
-                                    </div>
-                                </div>
+                                }
                             </div>
                         </div>
-
-                        <a href="#agents" class="btn btn-style btn-primary mt-5">Contact our agents</a>
+                        <a href="#agents" class="btn btn-style btn-primary mt-5">Temsilcilerimizle iletişime geçin</a>
                     </div>
                 </div>
             </div>
