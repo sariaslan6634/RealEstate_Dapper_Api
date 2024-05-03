@@ -32,9 +32,9 @@ namespace RealEstate_Dapper_Api.Repositories.EmployeeRepositories
 
         public async void DeleteEmployee(int id)
         {
-            string query = "Delete * From Employee WHERE EmployeeID = @employeID";
+            string query = "DELETE FROM Employee WHERE EmployeeID = @employeeID";
             var parameters = new DynamicParameters();
-            parameters.Add("@employeID", id);
+            parameters.Add("@employeeID", id);
             using (var connection = _context.CreateConnection())
             {
                 await connection.ExecuteAsync(query, parameters);
@@ -43,7 +43,7 @@ namespace RealEstate_Dapper_Api.Repositories.EmployeeRepositories
 
         public async Task<List<ResultEmployeeDto>> GetAllEmployeeAsync()
         {
-            string query = "Delete * From Employee";
+            string query = "Select * From Employee";
             using (var connection = _context.CreateConnection())
             {
                 var values = await connection.QueryAsync<ResultEmployeeDto>(query);
@@ -58,7 +58,7 @@ namespace RealEstate_Dapper_Api.Repositories.EmployeeRepositories
             parameters.Add("@employeeID", id);
             using (var connection = _context.CreateConnection())
             {
-                var values = await connection.QueryFirstOrDefaultAsync<GetByIDEmployeeDto>(query);
+                var values = await connection.QueryFirstOrDefaultAsync<GetByIDEmployeeDto>(query,parameters);
                 return values;
             }
         }
@@ -70,7 +70,7 @@ namespace RealEstate_Dapper_Api.Repositories.EmployeeRepositories
             parameters.Add("@name", updateEmployeeDto.Name);
             parameters.Add("@title", updateEmployeeDto.Title);
             parameters.Add("@mail", updateEmployeeDto.Mail);
-            parameters.Add("@phonNumber", updateEmployeeDto.PhoneNumber);
+            parameters.Add("@phoneNumber", updateEmployeeDto.PhoneNumber);
             parameters.Add("@imageUrl", updateEmployeeDto.ImageUrl);
             parameters.Add("@status", updateEmployeeDto.Status);
             parameters.Add("@employeeID", updateEmployeeDto.EmployeeID);
