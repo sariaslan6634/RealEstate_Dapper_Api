@@ -66,15 +66,15 @@ namespace RealEstate_Dapper_Api.Repositories.WheWeAreRepository
         {
             string query = "Update  WhoWeAreDetail Set Title= @Title,Subtitle=@Subtitle,Description1 =@Description1,Description2 = @Description2 where WhoWeAreDetailID = @id";
             var parameters = new DynamicParameters();
+            parameters.Add("@id", UpdateWhoWeAreDetailDto.WhoWeAreDetailID);
             parameters.Add("@Title", UpdateWhoWeAreDetailDto.Title);
             parameters.Add("@Subtitle", UpdateWhoWeAreDetailDto.Subtitle);
             parameters.Add("@Description1", UpdateWhoWeAreDetailDto.Description1);
             parameters.Add("@Description2", UpdateWhoWeAreDetailDto.Description2);
-            parameters.Add("@id", UpdateWhoWeAreDetailDto.WhoWeAreDetailID);
             using (var connection = _context.CreateConnection())
             {
                 await connection.ExecuteAsync(query, parameters);
-            };
+            }
         }
     }
 }
