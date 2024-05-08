@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using RealEstate_Dapper_Api.Dtos.CategoryDtos;
 using RealEstate_Dapper_Api.Dtos.WhoWeAreDetailDtos;
 using RealEstate_Dapper_Api.Repositories.CategoryRepository;
-using RealEstate_Dapper_Api.Repositories.WheWeAreRepository;
+using RealEstate_Dapper_Api.Repositories.WhoWeAreDetailRepository;
 
 namespace RealEstate_Dapper_Api.Controllers
 {
@@ -45,7 +45,7 @@ namespace RealEstate_Dapper_Api.Controllers
             return Ok("Hakkımızda kısmı Başarılı bir şekilde güncellendi");
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetupdateWhoWeAreDetail(int id)
+        public async Task<IActionResult> GetWhoWeAreDetail(int id)
         {
             var values = await _whoWeAreDetailRepository.GetWhoWeAreDetail(id);
             return Ok(values);

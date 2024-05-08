@@ -7,7 +7,7 @@ using RealEstate_Dapper_Api.Repositories.ProductRepository;
 using RealEstate_Dapper_Api.Repositories.ServicesRepository;
 using RealEstate_Dapper_Api.Repositories.StatisticsRepositories;
 using RealEstate_Dapper_Api.Repositories.TestimonialRepositories;
-using RealEstate_Dapper_Api.Repositories.WheWeAreRepository;
+using RealEstate_Dapper_Api.Repositories.WhoWeAreDetailRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
