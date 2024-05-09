@@ -31,7 +31,7 @@
                                     <td>@item.Name</td>
                                     <td>@item.Title</td>
                                     <td>@item.Status</td>
-                                    <td><a href="/Employee/DeleteEmployee/@item.EmployeeID" class="btn btn-outline-danger">Sil</td>
+                                    <td><a href="/Employee/DeleteEmployee/@item.EmployeeID" onclick="return confirm('Silmek istediğinize emin misiniz?')" class="btn btn-outline-danger">Sil</td>
                                     <td><a href="/Employee/UpdateEmployee/@item.EmployeeID" class="btn btn-outline-success">Güncelle</td>
                                 </tr>
                             }

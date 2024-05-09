@@ -29,7 +29,7 @@
                                     <th scope="row">@count</th>
                                     <td>@item.Title</td>
                                     <td>@item.Subtitle</td>
-                                    <td><a href="/WhoWeAre/DeleteWhoWeAreDetail/@item.WhoWeAreDetailID" class="btn btn-outline-danger">Sil</td>
+                                    <td><a href="/WhoWeAre/DeleteWhoWeAreDetail/@item.WhoWeAreDetailID" onclick="return confirm('Silmek istediğinize emin misiniz?')" class="btn btn-outline-danger">Sil</td>
                                     <td><a href="/WhoWeAre/UpdateWhoWeAreDetail/@item.WhoWeAreDetailID" class="btn btn-outline-success">Güncelle</td>
                                 </tr>
                             }

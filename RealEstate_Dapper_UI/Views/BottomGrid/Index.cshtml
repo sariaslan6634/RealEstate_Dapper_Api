@@ -29,7 +29,7 @@
                                     <th scope="row">@count</th>
                                     <td>@item.Title</td>
                                     <td>@item.Description</td>
-                                    <td><a href="/BottomGrid/DeleteBottomGrid/@item.BottomGridID" class="btn btn-outline-danger">Sil</td>
+                                    <td><a href="/BottomGrid/DeleteBottomGrid/@item.BottomGridID" onclick="return confirm('Silmek istediğinize emin misiniz?')" class="btn btn-outline-danger">Sil</td>
                                     <td><a href="/BottomGrid/UpdateBottomGrid/@item.BottomGridID" class="btn btn-outline-success">Güncelle</td>
                                 </tr>
                             }
