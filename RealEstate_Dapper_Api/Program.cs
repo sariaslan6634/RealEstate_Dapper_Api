@@ -34,10 +34,12 @@ builder.Services.AddCors(opt =>
 	opt.AddPolicy("CorsPolicy", builder =>
 	{
 		builder.AllowAnyHeader()
-		.AllowAnyHeader()
-		.SetIsOriginAllowed((host) => true);
+		.AllowAnyMethod()
+		.SetIsOriginAllowed((host) => true)
+		.AllowCredentials();
 	});
 });
+builder.Services.AddHttpClient();
 builder.Services.AddSignalR();
 
 builder.Services.AddControllers();
