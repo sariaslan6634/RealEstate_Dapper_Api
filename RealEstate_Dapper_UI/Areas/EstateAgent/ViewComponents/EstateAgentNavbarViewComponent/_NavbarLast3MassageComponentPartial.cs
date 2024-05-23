@@ -1,31 +1,30 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using RealEstate_Dapper_UI.Dtos.ProductDtos;
+using RealEstate_Dapper_UI.Dtos.MessageDtos;
 using RealEstate_Dapper_UI.Services;
 
-namespace RealEstate_Dapper_UI.Areas.EstateAgent.Controllers
+namespace RealEstate_Dapper_UI.Areas.EstateAgent.ViewComponents.EstateAgentNavbarViewComponent
 {
-    [Area("EstateAgent")]
-    public class MyAdvertsController : Controller
+    public class _NavbarLast3MassageComponentPartial:ViewComponent
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly ILoginService _loginService;
 
-        public MyAdvertsController(IHttpClientFactory httpClientFactory, ILoginService loginService)
+        public _NavbarLast3MassageComponentPartial(IHttpClientFactory httpClientFactory, ILoginService loginService)
         {
             _httpClientFactory = httpClientFactory;
             _loginService = loginService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
             var id = _loginService.GetUserId;
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:44353/api/Products/ProductAdvertsListByEmployee?id=" + id);
+            var responseMessage = await client.GetAsync("https://localhost:44353/api/Message?id=" + id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultProductAdvertListWithCategoryByEmployee>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultInBoxMessageDto>>(jsonData);
                 return View(values);
             }
             return View();
